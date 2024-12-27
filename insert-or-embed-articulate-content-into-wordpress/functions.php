@@ -94,7 +94,7 @@ function print_detail_form( $num, $tab = 'articulate-upload', $file_url = '', $d
 <span id="delete_<?php echo $num; ?>" onclick="delete_dir(<?php echo $num; ?>)" /><i class="material-icons pointercur">delete</i></span> &nbsp; &nbsp;
 <span id="insert_msg_<?php echo $num; ?>"></span>
 <p/>
-<iframe src="https://www.elearningfreak.com/wordpresspluginlatesttrial500.html?v=43000000024&editor=classic" width="600px" title="Upgrade to the premium plugin"></iframe>
+<iframe src="https://www.elearningfreak.com/wordpresspluginlatesttrial500.html?v=43000000025&editor=classic" width="600px" title="Upgrade to the premium plugin"></iframe>
 </div>		
 </div>
 	<?php

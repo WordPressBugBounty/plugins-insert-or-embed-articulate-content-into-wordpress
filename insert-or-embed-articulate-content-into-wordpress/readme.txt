@@ -3,9 +3,9 @@ Contributors: beeneeb
 Donate link: https://www.elearningfreak.com/?utm_source=freeplugin&utm_medium=readme&utm_campaign=donatelink
 Tags: articulate, storyline, rise, presenter, quizmaker, engage, storyline 2, storyline 3, storyline 360, elearning, insert, embed, iframe, studio, lms, rise, rise 360, responsive, 360, Captivate, Lectora, Camtasia, iSpring, Elucidat, Gomo, Obisidian Black, MindManager, e-learning, pubcoder, gutenberg, divi, elementor, learndash, wplms, learnpress, beaver builder, xapi, scorm
 Requires at least: 4.3
-Tested up to: 6.5.4
+Tested up to: 6.7.1
 Requires PHP: 5.6
-Stable tag: 4.3000000024
+Stable tag: 4.3000000025
 Quickly embed or insert e-Learning content into a post or page no matter if you use Articulate Storyline, Rise, Captivate, Lectora, Camtasia, iSpring, Elucidat, Gomo, Obisidian Black, MindManager, or any other tool.  Learn more about the premium plugin at https://www.elearningfreak.com
 == Description ==
 
@@ -116,6 +116,9 @@ Here's another potential solution to fix the issue from the server-side:
 
 http://www.inmotionhosting.com/support/edu/wordpress/http-image-error
 == Changelog ==
+= 4.3000000025 =
+Added compatibility for WordPress 6.7.1.
+
 = 4.3000000024 =
 Added compatibility for WordPress 6.5.4. Added additional security checks when uploading content. You must have the unfiltered_html capability to upload content. You must also ensure you can access all mime types from get_allowed_mime_types.
 
@@ -359,4 +362,4 @@ Resolved issue where JavaScript and CSS related to lightboxes was loading when i
 Initial version.
 
 == Upgrade Notice ==
-Added compatibility for WordPress 6.5.4. Added additional security checks when uploading content. You must have the unfiltered_html capability to upload content. You must also ensure you can access all mime types from get_allowed_mime_types. Please consider upgrading to the premium version of the plugin for xAPI support, tracking, reporting, statement viewer, launch content in full screen & much more! See https://www.elearningfreak.com/changelog-release-notes-roadmap/ for more information.
+Added compatibility for WordPress 6.7.1. Please consider upgrading to the premium version of the plugin for xAPI support, tracking, reporting, statement viewer, launch content in full screen & much more! See https://www.elearningfreak.com/changelog-release-notes-roadmap/ for more information.

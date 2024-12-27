@@ -3,7 +3,7 @@
 Plugin Name: Insert or Embed Articulate Content into WordPress Trial
 Plugin URI: https://www.elearningfreak.com
 Description: Quickly embed or insert e-Learning content into a post or page no matter if you use Articulate Storyline, Rise, Captivate, Lectora, Camtasia, iSpring, Elucidat, Gomo, Obisidian Black, MindManager, or any other tool.  Learn more about the premium plugin at https://www.elearningfreak.com
-Version: 4.3000000024
+Version: 4.3000000025
 Text Domain: insert-or-embed-articulate-content-into-wordpress
 Domain Path: /languages
 Author: Brian Batt
@@ -18,7 +18,7 @@ require_once WP_QUIZ_EMBEDER_PLUGIN_DIR . '/settings-file.php';
 require_once WP_QUIZ_EMBEDER_PLUGIN_DIR . '/include/class-custom-fs-functions.php';
 require_once WP_QUIZ_EMBEDER_PLUGIN_DIR . '/class-quiz-unzip.php';
 require_once WP_QUIZ_EMBEDER_PLUGIN_DIR . '/functions.php';
-const PLUGINVERSION = '43000000024';
+const PLUGINVERSION = '43000000025';
 const MATERIALIZE_CSS = 'css/materialize.css';
 const MATERIALIZEJS   = 'js/materialize.js';
 const ADMINJS         = 'js/admin.js';
@@ -34,12 +34,10 @@ register_activation_hook( __FILE__, 'quiz_embeder_install' );
 /*add_action( 'admin_notices', 'quiz_embeder_banner');*/
 register_deactivation_hook( __FILE__, 'quiz_embeder_remove' );
 if ( ! function_exists( 'articulate_fs' ) ) {
-	// Create a helper function for easy SDK access.
 	function articulate_fs() {
 		global $articulate_fs;
 
 		if ( ! isset( $articulate_fs ) ) {
-			// Include Freemius SDK.
 			require_once WP_QUIZ_EMBEDER_PLUGIN_DIR . '/freemius/start.php';
 
 			$articulate_fs = fs_dynamic_init(
@@ -64,9 +62,7 @@ if ( ! function_exists( 'articulate_fs' ) ) {
 		return $articulate_fs;
 	}
 
-	// Init Freemius.
 	articulate_fs();
-	// Signal that SDK was initiated.
 	do_action( 'articulate_fs_loaded' );
 }
 
@@ -117,11 +113,9 @@ function quiz_embeder_count() {
 	return apply_filters( 'quiz_embeder_count', $count );
 }
 function quiz_embeder_install() {
-	quiz_embeder_create_protection_files( true );// this function will create the upload directory also.
+	quiz_embeder_create_protection_files( true );
 }
 function quiz_embeder_remove() {
-	// $qz_upload_path=getUploadsPath();
-	// if(file_exists($qz_upload_path.".htaccess")){unlink($qz_upload_path.".htaccess");}
 }
 add_action( 'wp_ajax_quiz_upload', 'wp_ajax_quiz_upload' );
 add_action( 'wp_ajax_del_dir', 'wp_ajax_del_dir' );
@@ -217,7 +211,6 @@ add_filter( 'coursepress_element_editor_args', 'rename_quiz_modify_coursepress_e
 function quiz_admin_footer() {
 	?>
 	<style type="text/css">
-		/* additional CSS for coursepress plugin. Fix the style 'Short Overview' label */
 		#course-setup-steps .step-content label.drop-line{
 			margin-bottom: 40px;
 		}
@@ -233,7 +226,6 @@ function quiz_admin_footer_fix_with_fusion_builder() {
 		<div id="quiz_embeder_button_copy" style="display:none;"><?php wp_myplugin_media_button(); ?></div>
 		<script type="text/javascript">
 			(function( $ ){
-				//See /fusion-builder/assets/js/wpeditor/wp-editor.js
 				$(document).on('fusionButtons', function( event , current_id ){
 					if( $("#wp-"+current_id+"-media-buttons" ).find(".quiz_btn").length == 0 )
 					{
@@ -257,5 +249,5 @@ if ( is_admin() ) {
 function quiz_embeder_plugins_loaded() {
 	load_plugin_textdomain( 'insert-or-embed-articulate-content-into-wordpress', false, dirname( __FILE__ ) . '/' . 'languages/' );
 }
-add_action( 'plugins_loaded', 'quiz_embeder_plugins_loaded' );
-
+remove_action( 'plugins_loaded', 'quiz_embeder_plugins_loaded' );
+add_action( 'init', 'quiz_embeder_plugins_loaded' );

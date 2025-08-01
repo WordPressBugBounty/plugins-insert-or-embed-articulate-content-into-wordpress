@@ -3,7 +3,7 @@
 Plugin Name: Insert or Embed Articulate Content into WordPress Trial
 Plugin URI: https://www.elearningfreak.com
 Description: Quickly embed or insert e-Learning content into a post or page no matter if you use Articulate Storyline, Rise, Captivate, Lectora, Camtasia, iSpring, Elucidat, Gomo, Obisidian Black, MindManager, or any other tool.  Learn more about the premium plugin at https://www.elearningfreak.com
-Version: 4.3000000025
+Version: 4.3000000026
 Text Domain: insert-or-embed-articulate-content-into-wordpress
 Domain Path: /languages
 Author: Brian Batt
@@ -18,7 +18,7 @@ require_once WP_QUIZ_EMBEDER_PLUGIN_DIR . '/settings-file.php';
 require_once WP_QUIZ_EMBEDER_PLUGIN_DIR . '/include/class-custom-fs-functions.php';
 require_once WP_QUIZ_EMBEDER_PLUGIN_DIR . '/class-quiz-unzip.php';
 require_once WP_QUIZ_EMBEDER_PLUGIN_DIR . '/functions.php';
-const PLUGINVERSION = '43000000025';
+const PLUGINVERSION = '43000000026';
 const MATERIALIZE_CSS = 'css/materialize.css';
 const MATERIALIZEJS   = 'js/materialize.js';
 const ADMINJS         = 'js/admin.js';

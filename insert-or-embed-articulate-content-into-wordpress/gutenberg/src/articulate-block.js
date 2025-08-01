@@ -325,7 +325,7 @@ class ArticulateBlock extends Component {
 										</Button>
 									</ButtonGroup>
 									<p>
-										<iframe src="https://www.elearningfreak.com/wordpresspluginlatesttrial500.html?v=43000000025&editor=gutenburg" width="600px" frameborder="0"></iframe>
+										<iframe src="https://www.elearningfreak.com/wordpresspluginlatesttrial500.html?v=43000000026&editor=gutenburg" width="600px" frameborder="0"></iframe>
 									</p>
 								</div>
 						}
@@ -410,7 +410,7 @@ class ArticulateBlock extends Component {
 														/>
 													</ButtonGroup>
 													<p>
-														<iframe src="https://www.elearningfreak.com/wordpresspluginlatesttrial500.html?v=43000000025" width="600px" frameborder="0"></iframe>
+														<iframe src="https://www.elearningfreak.com/wordpresspluginlatesttrial500.html?v=43000000026" width="600px" frameborder="0"></iframe>
 													</p>
 												</PanelBody>
 

@@ -12,14 +12,14 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /.js?$/,
+				test: /\.js?$/,
 				use: [ {
 					loader: 'babel-loader',
 					options: {
 						presets: [ '@babel/preset-env' ],
 						plugins: [
 							'@babel/plugin-transform-async-to-generator',
-							'@babel/plugin-proposal-object-rest-spread',
+							'@babel/plugin-transform-object-rest-spread',
 							[
 								'@babel/plugin-transform-react-jsx', {
 									'pragma': 'wp.element.createElement'
@@ -27,31 +27,34 @@ module.exports = {
 							]
 						]
 					}
-				},
-				/*'eslint-loader'*/ ],
+				} ],
 				exclude: /node_modules/
 			},
 			{
 				test: /\.(css|scss)$/,
-				use: [ {
-					loader: MiniCssExtractPlugin.loader
-				},
-				'css-loader',
-				{
-					loader: 'postcss-loader',
-					options: {
-						plugins: [
-							require( 'autoprefixer' )
-						]
-					}
-				},
-				{
-					loader: 'sass-loader',
-					query: {
-						outputStyle:
-							'production' === process.env.NODE_ENV ? 'compressed' : 'nested'
-					}
-				} ]
+				use: [ 
+					MiniCssExtractPlugin.loader,
+					'css-loader',
+					{
+						loader: 'postcss-loader',
+						options: {
+							postcssOptions: {
+								plugins: [
+									require( 'autoprefixer' )
+								]
+							}
+						}
+					},
+					{
+						loader: 'sass-loader',
+						options: {
+							sassOptions: {
+								outputStyle:
+									'production' === process.env.NODE_ENV ? 'compressed' : 'nested'
+							}
+						}
+					} 
+				]
 			}
 		]
 	},
@@ -62,5 +65,8 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			filename: './build/block.css'
 		})
-	]
+	],
+	resolve: {
+		extensions: [ '.js', '.jsx' ]
+	}
 };

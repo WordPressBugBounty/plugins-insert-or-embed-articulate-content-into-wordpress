@@ -33,9 +33,9 @@ function get_slug_from_string( $string ) {
 // ********************************************************************************************************************************
 function print_page_navi( $num_records ) {
 	// $num_records; #holds total number of record
-	$page_size = '';     // holds how many items per page
-	$page      = 1;          // holds the curent page index
-	$num_pages = '';     // holds the total number of pages
+	$page_size = '';     // holds how many items per page.
+	$page      = 1;          // holds the current page index.
+	$num_pages = '';     // holds the total number of pages.
 	$page_size = 15;
 	// get the page index
 	if ( empty( $_GET['npage'] ) || ! is_numeric( $_GET['npage'] ) ) {
@@ -94,14 +94,14 @@ function print_detail_form( $num, $tab = 'articulate-upload', $file_url = '', $d
 <span id="delete_<?php echo $num; ?>" onclick="delete_dir(<?php echo $num; ?>)" /><i class="material-icons pointercur">delete</i></span> &nbsp; &nbsp;
 <span id="insert_msg_<?php echo $num; ?>"></span>
 <p/>
-<iframe src="https://www.elearningfreak.com/wordpresspluginlatesttrial500.html?v=43000000026&editor=classic" width="600px" title="Upgrade to the premium plugin"></iframe>
+<iframe src="https://www.elearningfreak.com/wordpresspluginlatesttrial500.html?v=43000000027&editor=classic" width="600px" title="Upgrade to the premium plugin"></iframe>
 </div>		
 </div>
 	<?php
 }//end print_detail_form()
 function printInsertForm() {
-	wp_enqueue_style( 'materialize-css', WP_QUIZ_EMBEDER_PLUGIN_URL . 'css/materialize.css' );
-	wp_enqueue_script( 'materializejs', WP_QUIZ_EMBEDER_PLUGIN_URL . 'js/materialize.js' );
+	wp_enqueue_style( 'materialize-css', WP_QUIZ_EMBEDER_PLUGIN_URL . 'css/materialize.css', array(), PLUGINVERSION, 'all' );
+	wp_enqueue_script( 'materializejs', WP_QUIZ_EMBEDER_PLUGIN_URL . 'js/materialize.js', array(), PLUGINVERSION, false );
 	// echo "<h3>Start printInsertForm</h3>";
 	$dirs = getDirs();
 	if ( count( $dirs ) > 0 ) {
@@ -147,7 +147,7 @@ function printInsertForm() {
 	endforeach;
 		echo '</ul>';
 	} else {
-		echo __( 'No directories available', 'insert-or-embed-articulate-content-into-wordpress' );
+		echo esc_html( __( 'No directories available', 'insert-or-embed-articulate-content-into-wordpress' ) );
 	}
 	// echo "<h3>End printInsertForm</h3>";
 }
@@ -953,33 +953,33 @@ function wp_ajax_quiz_check_folder( $dir ) {
 }
 
 function articulate_has_php_file( $dir ) {
-    $dir = rtrim( $dir, '/' );
-    if ( is_dir( $dir ) ) {
+	$dir = rtrim( $dir, '/' );
+	if ( is_dir( $dir ) ) {
 
-        $dir_handle = opendir( $dir );
-        if ( $dir_handle ) {
-            while ( $file = readdir( $dir_handle ) ) {
-                if ( $file != '.' && $file != '..' ) {
-                    if ( !is_dir( $dir . '/' . $file ) &&
-                        (strpos($file, '.phtml') !== false ||
-                         strpos($file, '.php') !== false && $file != 'relay.php' ||
-                         strpos($file, '.phar') !== false ||
-                         strpos($file, '.htaccess') !== false) ) { // Added condition for .phar files and .htaccess
-                        return true;
-                    } else {
-                        $found = articulate_has_php_file( $dir . '/' . $file );
-                        if ( $found ) {
-                            return true;
-                        }
-                    }
-                }
-            }
-            closedir( $dir_handle );
-        }
+		$dir_handle = opendir( $dir );
+		if ( $dir_handle ) {
+			while ( $file = readdir( $dir_handle ) ) {
+				if ( $file != '.' && $file != '..' ) {
+					if ( ! is_dir( $dir . '/' . $file ) &&
+						( strpos( $file, '.phtml' ) !== false ||
+							strpos( $file, '.php' ) !== false && $file != 'relay.php' ||
+							strpos( $file, '.phar' ) !== false ||
+							strpos( $file, '.htaccess' ) !== false ) ) { // Added condition for .phar files and .htaccess.
+						return true;
+					} else {
+						$found = articulate_has_php_file( $dir . '/' . $file );
+						if ( $found ) {
+							return true;
+						}
+					}
+				}
+			}
+			closedir( $dir_handle );
+		}
 
-        return false;
-    }
-    return false;
+		return false;
+	}
+	return false;
 }
 
 function articulate_run_admin_memory_limit_hook( $limit ) {
@@ -999,7 +999,7 @@ function extractZip( $fileName, $target, $dir ) {
 		if ( articulate_has_php_file( $target ) ) {
 			$arr[0] = '<span style="color:red">' . sprintf( __( 'ZIP upload successful, but we found a PHP file that is not allowed in your content directory. Contact support at %s', 'insert-or-embed-articulate-content-into-wordpress' ), '<a style="color: black" target="_blank" href="https://www.elearningfreak.com/upload-file/">www.elearningfreak.com</a>' ) . '</span>';
 			articulate_rrmdir( $target );
-			$arr[4] = 0;// OK = 0
+			$arr[4] = 0;// OK = 0.
 			$arr[1] = '';
 			$arr[2] = $dir;
 			$arr[3] = '';
@@ -1009,11 +1009,11 @@ function extractZip( $fileName, $target, $dir ) {
 			$arr[0] = 'Upload Complete!';
 			if ( $file['status'] == 'valid_html_file_found' || $file['status'] == 'index_html_file_found' || $file['status'] == 'other_html_file_found' ) {
 				$arr[0] = __( 'Upload Complete!', 'insert-or-embed-articulate-content-into-wordpress' );
-				$arr[4] = 1;// OK = 1
+				$arr[4] = 1;// OK = 1.
 			} elseif ( $file['status'] == 'no_html_file_found' ) {
 				$arr[0] = '<span style="color:black">' . sprintf( __( 'ZIP upload successful, but we were unable to find an HTML file. Either increase your WP_MEMORY_LIMIT, define your FS_METHOD as DIRECT, or contact support at %s', 'insert-or-embed-articulate-content-into-wordpress' ), '<a style="color: black" target="_blank" href="https://www.elearningfreak.com/upload-file/">www.elearningfreak.com</a>' ) . '</span>';
 				articulate_rrmdir( $target );
-				$arr[4] = 0;// OK = 0
+				$arr[4] = 0;// OK = 0.
 			}
 
 			$arr[1] = getUploadsUrl() . $dir . '/' . $file['file_name'];
@@ -1022,7 +1022,7 @@ function extractZip( $fileName, $target, $dir ) {
 		}
 	} else {
 		$arr[0] = __( 'File upload failed', 'insert-or-embed-articulate-content-into-wordpress' );
-		$arr[4] = 0;// OK = 0
+		$arr[4] = 0;// OK = 0.
 	}
 	return $arr;
 }
@@ -1046,11 +1046,11 @@ function quiz_embeder_admin_scripts() {
 	if ( isset( $_GET['page'] ) && ( $_GET['page'] == 'articulate_content' || $_GET['page'] == 'articulate-settings-button' ) ) {
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_media();
-		wp_register_script( 'quiz_embeder_upload', WP_QUIZ_EMBEDER_PLUGIN_URL . ADMINJS );
+		wp_register_script( 'quiz_embeder_upload', WP_QUIZ_EMBEDER_PLUGIN_URL . ADMINJS, array(), PLUGINVERSION, false );
 		wp_enqueue_script( 'quiz_embeder_upload' );
 		wp_enqueue_style( 'materialize-css', WP_QUIZ_EMBEDER_PLUGIN_URL . MATERIALIZE_CSS );
-		wp_enqueue_script( 'materializejs', WP_QUIZ_EMBEDER_PLUGIN_URL . MATERIALIZEJS );
-		wp_enqueue_script( 'jshelpers', WP_QUIZ_EMBEDER_PLUGIN_URL . JSHELPERS );
+		wp_enqueue_script( 'materializejs', WP_QUIZ_EMBEDER_PLUGIN_URL . MATERIALIZEJS, array(), PLUGINVERSION, false );
+		wp_enqueue_script( 'jshelpers', WP_QUIZ_EMBEDER_PLUGIN_URL . JSHELPERS, array(), PLUGINVERSION, false );
 	}
 }
 add_action( 'admin_enqueue_scripts', 'quiz_embeder_admin_scripts' );

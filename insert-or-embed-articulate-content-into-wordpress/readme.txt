@@ -5,7 +5,7 @@ Tags: articulate, storyline, rise, presenter, quizmaker, engage, storyline 2, st
 Requires at least: 4.3
 Tested up to: 6.8.2
 Requires PHP: 5.6
-Stable tag: 4.3000000026
+Stable tag: 4.3000000027
 Quickly embed or insert e-Learning content into a post or page no matter if you use Articulate Storyline, Rise, Captivate, Lectora, Camtasia, iSpring, Elucidat, Gomo, Obisidian Black, MindManager, or any other tool.  Learn more about the premium plugin at https://www.elearningfreak.com
 == Description ==
 
@@ -116,6 +116,9 @@ Here's another potential solution to fix the issue from the server-side:
 
 http://www.inmotionhosting.com/support/edu/wordpress/http-image-error
 == Changelog ==
+= 4.3000000027 =
+Fixed upload issue.
+
 = 4.3000000026 =
 Added compatibility for WordPress 6.8.2. Prevents htaccess files from being uploaded. Fixes CVE-2025-32202.
 
@@ -365,4 +368,4 @@ Resolved issue where JavaScript and CSS related to lightboxes was loading when i
 Initial version.
 
 == Upgrade Notice ==
-Added compatibility for WordPress 6.8.2. Prevents htaccess files from being uploaded. Fixes CVE-2025-32202. Please consider upgrading to the premium version of the plugin for xAPI support, tracking, reporting, statement viewer, launch content in full screen & much more! See https://www.elearningfreak.com/changelog-release-notes-roadmap/ for more information.
+Fixed upload issue. Please consider upgrading to the premium version of the plugin for xAPI support, tracking, reporting, statement viewer, launch content in full screen & much more! See https://www.elearningfreak.com/changelog-release-notes-roadmap/ for more information.

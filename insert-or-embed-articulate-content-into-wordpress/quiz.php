@@ -3,7 +3,7 @@
 Plugin Name: Insert or Embed Articulate Content into WordPress Trial
 Plugin URI: https://www.elearningfreak.com
 Description: Quickly embed or insert e-Learning content into a post or page no matter if you use Articulate Storyline, Rise, Captivate, Lectora, Camtasia, iSpring, Elucidat, Gomo, Obisidian Black, MindManager, or any other tool.  Learn more about the premium plugin at https://www.elearningfreak.com
-Version: 4.3000000026
+Version: 4.3000000027
 Text Domain: insert-or-embed-articulate-content-into-wordpress
 Domain Path: /languages
 Author: Brian Batt
@@ -14,11 +14,11 @@ Author URI: https://www.elearningfreak.com
 		define( 'WP_QUIZ_EMBEDER_PLUGIN_URL', plugin_dir_url( __FILE__ ) ); // Plugin URL (for http requests)
 global $wpdb;
 
-require_once WP_QUIZ_EMBEDER_PLUGIN_DIR . '/settings-file.php';
+require_once WP_QUIZ_EMBEDER_PLUGIN_DIR . '/settings.php';
 require_once WP_QUIZ_EMBEDER_PLUGIN_DIR . '/include/class-custom-fs-functions.php';
 require_once WP_QUIZ_EMBEDER_PLUGIN_DIR . '/class-quiz-unzip.php';
 require_once WP_QUIZ_EMBEDER_PLUGIN_DIR . '/functions.php';
-const PLUGINVERSION = '43000000026';
+const PLUGINVERSION = '43000000027';
 const MATERIALIZE_CSS = 'css/materialize.css';
 const MATERIALIZEJS   = 'js/materialize.js';
 const ADMINJS         = 'js/admin.js';
@@ -127,8 +127,8 @@ function wp_myplugin_media_button() {
 <img src="' . $wp_myplugin_media_button_image . '" width=15 height=15 /></a>';
 }
 function media_upload_quiz_form() {
-	wp_enqueue_style( 'materialize-css', WP_QUIZ_EMBEDER_PLUGIN_URL . MATERIALIZE_CSS );
-	wp_enqueue_script( 'materializejs', WP_QUIZ_EMBEDER_PLUGIN_URL . MATERIALIZEJS );
+	wp_enqueue_style( 'materialize-css', WP_QUIZ_EMBEDER_PLUGIN_URL . MATERIALIZE_CSS, array(), PLUGINVERSION, 'all' );
+	wp_enqueue_script( 'materializejs', WP_QUIZ_EMBEDER_PLUGIN_URL . MATERIALIZEJS, array(), PLUGINVERSION, false );
 	wp_enqueue_style( 'material-icons', WP_QUIZ_EMBEDER_PLUGIN_URL . MATERIALIZEICONS, array(), PLUGINVERSION, 'all' );
 	print_tabs();
 	echo '<div class="wrap" style="margin-left:20px;  margin-bottom:50px;">';
@@ -137,8 +137,8 @@ function media_upload_quiz_form() {
 	echo '</div>';
 }
 function media_upload_quiz_content() {
-	wp_enqueue_style( 'materialize-css', WP_QUIZ_EMBEDER_PLUGIN_URL . MATERIALIZE_CSS );
-	wp_enqueue_script( 'materializejs', WP_QUIZ_EMBEDER_PLUGIN_URL . MATERIALIZEJS );
+	wp_enqueue_style( 'materialize-css', WP_QUIZ_EMBEDER_PLUGIN_URL . MATERIALIZE_CSS, array(), PLUGINVERSION, 'all' );
+	wp_enqueue_script( 'materializejs', WP_QUIZ_EMBEDER_PLUGIN_URL . MATERIALIZEJS, array(), PLUGINVERSION, false );
 	wp_enqueue_style( 'material-icons', WP_QUIZ_EMBEDER_PLUGIN_URL . MATERIALIZEICONS, array(), PLUGINVERSION, 'all' );
 	print_tabs();
 	echo '<div class="wrap" style="margin-left:20px;  margin-bottom:50px;">';
@@ -147,8 +147,8 @@ function media_upload_quiz_content() {
 	echo '</div>';
 }
 function media_upload_quiz() {
-	wp_enqueue_style( 'materialize-css', WP_QUIZ_EMBEDER_PLUGIN_URL . MATERIALIZE_CSS );
-	wp_enqueue_script( 'materializejs', WP_QUIZ_EMBEDER_PLUGIN_URL . MATERIALIZEJS );
+	wp_enqueue_style( 'materialize-css', WP_QUIZ_EMBEDER_PLUGIN_URL . MATERIALIZE_CSS, array(), PLUGINVERSION, 'all' );
+	wp_enqueue_script( 'materializejs', WP_QUIZ_EMBEDER_PLUGIN_URL . MATERIALIZEJS, array(), PLUGINVERSION, false );
 	wp_iframe( 'media_upload_quiz_content' );
 }
 function media_upload_upload() {

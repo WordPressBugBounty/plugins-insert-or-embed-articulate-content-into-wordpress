@@ -3,7 +3,7 @@ const BLOCKJS  = 'gutenberg/build/block.js';
 const BLOCKCSS = 'gutenberg/build/block.css';
 function articulate_enqueue_gutenberg_scripts() {
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'materializejs', WP_QUIZ_EMBEDER_PLUGIN_URL . MATERIALIZEJS, array( 'jquery', 'jquery-ui-core', 'jquery-ui-tooltip' ) );
+	wp_enqueue_script( 'materializejs', WP_QUIZ_EMBEDER_PLUGIN_URL . MATERIALIZEJS, array( 'jquery', 'jquery-ui-core', 'jquery-ui-tooltip' ), PLUGINVERSION, false );
 	wp_enqueue_script( 'articulate-gutenberg-block', WP_QUIZ_EMBEDER_PLUGIN_URL . BLOCKJS, array( 'wp-api', 'wp-i18n', 'wp-blocks', 'wp-components', 'wp-compose', 'wp-data', 'wp-editor', 'wp-element' ), filemtime( WP_QUIZ_EMBEDER_PLUGIN_DIR . '/gutenberg/build/block.js' ), true );
 
 	wp_localize_script(
